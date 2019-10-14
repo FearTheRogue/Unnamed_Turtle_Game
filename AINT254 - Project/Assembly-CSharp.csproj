@@ -57,6 +57,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\ArmControl.cs" />
      <Compile Include="Assets\Scripts\Despawn.cs" />
+     <Compile Include="Assets\Scripts\EnemyControl.cs" />
      <Compile Include="Assets\Scripts\LaunchArcMesh.cs" />
      <Compile Include="Assets\Scripts\LaunchArcRenderer.cs" />
      <Compile Include="Assets\Scripts\PlayerMovement.cs" />
