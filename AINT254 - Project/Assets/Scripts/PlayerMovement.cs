@@ -15,15 +15,15 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         // Moves player forwards
-        if (Input.GetKey(KeyCode.W))
-        {
-            transform.position += Vector3.forward.normalized * Time.deltaTime * speed;
-        }
+        //if (Input.GetKey(KeyCode.W))
+       // {
+           // transform.position += Vector3.forward.normalized * Time.deltaTime * speed;
+       // }
         // Moves player backwards
-        if (Input.GetKey(KeyCode.S))
-        {
-            transform.position -= Vector3.forward.normalized * Time.deltaTime * speed;
-        }
+        //if (Input.GetKey(KeyCode.S))
+        //{
+        //    transform.position -= Vector3.forward.normalized * Time.deltaTime * speed;
+        //}
         // Moves player left
         if (Input.GetKey(KeyCode.A))
         {
