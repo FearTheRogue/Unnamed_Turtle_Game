@@ -32,9 +32,15 @@ public class EnemyControl : MonoBehaviour
     {
         if (stay)
         {
-            Debug.Log("Staying");
-        }
+            transform.Translate(0.0f,0.0f,0.0f);
+			Debug.Log("isStaying");
+		}
     }
+
+	void isTravelling()
+	{
+	
+	}
 
     void Update()
     {
@@ -50,10 +56,11 @@ public class EnemyControl : MonoBehaviour
                 if ((transform.position - target.position).magnitude > stopDist)
                 {
                     transform.Translate(0.0f, 0.0f, speed * Time.deltaTime);
+					stay = true;
                     Destroy(target.gameObject, 10f);
-                } else
+                } 
+				else
                 {
-                    stay = true;
                     return;
                 }
             }
