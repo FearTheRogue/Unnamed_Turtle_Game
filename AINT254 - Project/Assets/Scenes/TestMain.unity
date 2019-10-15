@@ -313,6 +313,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 823120483}
+  - component: {fileID: 823120484}
   m_Layer: 0
   m_Name: Enemy Spawn
   m_TagString: Untagged
@@ -328,12 +329,25 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 823120482}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -19.08, y: -1.96, z: -8.465334}
+  m_LocalPosition: {x: -19.08, y: 0, z: -8.465334}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &823120484
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 823120482}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &931052303
 GameObject:
   m_ObjectHideFlags: 0
@@ -458,6 +472,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1307766188}
+  - component: {fileID: 1307766189}
   m_Layer: 0
   m_Name: Nest
   m_TagString: Untagged
@@ -481,6 +496,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &1307766189
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1307766187}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 3.65
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1429591053
 GameObject:
   m_ObjectHideFlags: 0
@@ -770,7 +798,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1581625630}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.7, y: 0, z: -7.39}
+  m_LocalPosition: {x: 14.7, y: 0, z: -3.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -790,10 +818,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1532469774}
   enemySpawn: {fileID: 823120483}
-  speed: 2
-  stopDist: 5
+  speed: 5
+  stopDist: 2
   targetBool: 0
   travelToSpawn: 0
+  enter: 1
+  stay: 0
+  exit: 0
 --- !u!54 &1581625636
 Rigidbody:
   m_ObjectHideFlags: 0

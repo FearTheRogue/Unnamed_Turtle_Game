@@ -13,9 +13,27 @@ public class EnemyControl : MonoBehaviour
     public bool targetBool = false;
     public bool travelToSpawn = false;
 
+    public bool enter = true;
+    public bool stay = false;
+    public bool exit = false;
+
     void Start()
     {
 
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if(exit)
+        Destroy(transform.gameObject);
+    }
+
+    void OnTriggerStay(Collider other)
+    {
+        if (stay)
+        {
+            Debug.Log("Staying");
+        }
     }
 
     void Update()
@@ -35,6 +53,7 @@ public class EnemyControl : MonoBehaviour
                     Destroy(target.gameObject, 10f);
                 } else
                 {
+                    stay = true;
                     return;
                 }
             }
@@ -50,6 +69,7 @@ public class EnemyControl : MonoBehaviour
                 transform.LookAt(enemySpawn.position);
 
                 transform.Translate(0.0f, 0.0f, speed * Time.deltaTime);
+                exit = true;
             }
         }
     }
