@@ -12,13 +12,17 @@ public class ThrowObject : MonoBehaviour
 
     }
 
+    void Fire()
+    {
+        Rigidbody o = Instantiate(throwPrefab, transform.position, transform.rotation);
+        o.velocity = transform.forward * speed;
+    }
+
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Rigidbody o = Instantiate(throwPrefab, transform.position, transform.rotation);
-            o.velocity = transform.forward * speed;
-            //TurretControl.instance.TurretRecall();
+            Fire();
         }
     }
 }
