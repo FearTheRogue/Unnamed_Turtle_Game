@@ -9,6 +9,8 @@ public class EnemySpawn : MonoBehaviour
     public int zPos;
     public int enemyCount;
 
+    public int amountOfEnemiesToSpawn;
+
     void Start()
     {
         StartCoroutine(SpawnTheEnemy());
@@ -16,7 +18,7 @@ public class EnemySpawn : MonoBehaviour
 
     IEnumerator SpawnTheEnemy()
     {
-        while(enemyCount < 1)
+        while(enemyCount < amountOfEnemiesToSpawn)
         {
             xPos = Random.Range(-40, 40);
             zPos = Random.Range(-91, -60);
@@ -24,6 +26,8 @@ public class EnemySpawn : MonoBehaviour
             yield return new WaitForSeconds(.5f);
 
             enemyCount += 1;
+
+            GameUI.instance.enemiesText.text = "Amount of enemies Spawned " + enemyCount;
         }
     }
 

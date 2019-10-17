@@ -10,6 +10,7 @@ public class TurretControl : MonoBehaviour
     public Transform barrel;
     public float eleMin;
     public float eleMax;
+    public float speed = 1f;
 
     float elevation = 0;
     float v;
@@ -24,9 +25,9 @@ public class TurretControl : MonoBehaviour
 
     void Update()
     {
-        transform.Rotate(0, Input.GetAxis("Horizontal"), 0);
+        transform.Rotate(0, Input.GetAxis("Horizontal") * speed, 0);
 
-        v = Input.GetAxis("Vertical");
+        v = Input.GetAxis("Vertical") * speed;
         elevation = Mathf.Clamp(elevation + v, eleMin, eleMax);
         turret.localRotation = Quaternion.Euler(elevation, 0, 0);
     }

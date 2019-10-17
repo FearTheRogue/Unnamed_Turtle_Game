@@ -53,13 +53,13 @@ public class EnemyControl : MonoBehaviour
 
         if (stay)
             canDespawnItem = true;
-			Debug.Log("isStaying");
+			//Debug.Log("isStaying");
     }
 
     void OnCollisionEnter(Collision other)
     {
         collision = true;
-        Debug.Log("Ouch");
+        //Debug.Log("Collision with " + other.collider.name);
     }
 
     void FindClosestItem()
@@ -116,7 +116,7 @@ public class EnemyControl : MonoBehaviour
                     if (canDespawnItem && collision)
                     {
                         GameUI.instance.text.text = "An Enemy is taking an " + target.name;
-                        Destroy(target.gameObject, 5f);
+                        Destroy(target.gameObject, 10f);
                     }
                 }
             }
@@ -141,7 +141,12 @@ public class EnemyControl : MonoBehaviour
     void Update()
     {
         FindClosestItem();
-        //FindTarget();
+
+        if (exit)
+        {
+            GameUI.instance.text.text = "GAME OVER, NO EGGS LEFT";
+        }
+            //FindTarget();
 
         //if(stay == false)
         //{
