@@ -193,4 +193,9 @@ public class EnemyControl : MonoBehaviour
         //    }
         //}
     }
+
+    public void Die()
+    {
+        Destroy(gameObject);
+    }
 }
