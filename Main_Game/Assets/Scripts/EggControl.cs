@@ -11,19 +11,19 @@ public class EggControl : MonoBehaviour
     public bool atEgg = false;
     public bool isAlive = true;
 
-    public Slider eggHealhSlider;
-    public Color maxHealthColor = Color.green;
-    public Color minHealthColor = Color.red;
-    public Image Fill;
-    public Text eggText;
-    public string name;
+    UI_Slider slider;
+
+    void Awake()
+    {
+        slider = GetComponent<UI_Slider>();
+    }
 
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = startingHealth;
-        eggHealhSlider.maxValue = startingHealth;
-        eggHealhSlider.value = startingHealth;
+        slider.maxValue = startingHealth;
+        slider.value = startingHealth;
     }
 
     // Update is called once per frame
@@ -31,8 +31,7 @@ public class EggControl : MonoBehaviour
     {
         if (atEgg)
         {
-            Debug.Log("Update being called");
-            currentHealth -= Time.deltaTime;
+            currentHealth -= Time.deltaTime / 5f;
             currentHealth = Mathf.Clamp(currentHealth, 0, currentHealth);
             TakingEgg();
 
@@ -42,9 +41,7 @@ public class EggControl : MonoBehaviour
 
     public void TakingEgg()
     {
-        Debug.Log("Taking egg being called");
         atEgg = true;
-        Debug.Log(atEgg + name);
 
         if(currentHealth == 0.0f)
         {
@@ -57,17 +54,19 @@ public class EggControl : MonoBehaviour
     {
         if (isAlive)
         {
-            eggHealhSlider.value = val;
-            eggText.text = name + " - " + Mathf.FloorToInt(val) + " / " + startingHealth;
-            Fill.color = Color.Lerp(minHealthColor, maxHealthColor, Mathf.FloorToInt(val / startingHealth));
+            slider.value = val;
+            slider.text.text = slider.sliderName + " - " + val.ToString("F1") + " / " + startingHealth;
+            slider.fill.color = Color.Lerp(slider.minHealthColor, slider.maxHealthColor, val / startingHealth);
+
             if(val <= 1)
             {
-                eggText.text = name + " - " + val.ToString("F1") + " / " + startingHealth;
+                slider.text.text = slider.sliderName + " - " + val.ToString("F2") + " / " + startingHealth;
             }
         }
+
         if (!isAlive)
         {
-            eggText.text = "Deceased";
+            slider.text.text = "Deceased";
         }
     }
 }

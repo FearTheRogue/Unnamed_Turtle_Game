@@ -5,11 +5,24 @@ using UnityEngine.UI;
 
 public class UI_Slider : MonoBehaviour
 {
+    [Header("Slider Object")]
     public Slider slider;
-    public Color maxHealthColor = Color.green;
-    public Color minHealthColor = Color.red;
+
+    [Header("Slider Color")]
+    public Color maxHealthColor;
+    public Color minHealthColor;
+    
+    [Header("Slider Image")]
     public Image fill;
+
+    [Header("Slider Text")]
     public Text text;
+
+    [Header("Slider Name")]
+    public string sliderName = "";
+
+    public float maxValue;
+    public float value;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +33,7 @@ public class UI_Slider : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        slider.maxValue = maxValue;
+        slider.value = value;
     }
 }

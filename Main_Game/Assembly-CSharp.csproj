@@ -74,6 +74,7 @@
      <Compile Include="Assets\Scripts\TurretControl.cs" />
      <Compile Include="Assets\Scripts\UI_Slider.cs" />
      <Compile Include="Assets\Scripts\UISlider.cs" />
+     <Compile Include="Assets\Scripts\WaveSpawner.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>C:/Users/coypu/Documents/GitHub/Unnamed_Turtle_Game/Main_Game/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>

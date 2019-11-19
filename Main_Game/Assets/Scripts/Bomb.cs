@@ -4,11 +4,17 @@ using UnityEngine;
 
 public class Bomb : MonoBehaviour
 {
+    [Header("Projectile Attributes")]
+
     public float delay = 3f;
     public float radius = 5f;
     public float force = 700f;
+    public float damage = 2;
+
+    [Header("Explosion Effect")]
 
     public GameObject explosionEffect;
+
 
     float countdown;
     bool hasExploded = false;
@@ -54,7 +60,7 @@ public class Bomb : MonoBehaviour
             EnemyControl enemy = nearbyObject.GetComponent<EnemyControl>();
             if(enemy != null)
             {
-                enemy.Health();
+                enemy.Health(damage);
             }
         }
         Destroy(gameObject);
