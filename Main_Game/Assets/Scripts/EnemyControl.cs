@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class EnemyControl : MonoBehaviour
 {
     public GameObject target;
-    public GameObject enemySpawn;
+    //public GameObject enemySpawn;
     public GameObject enemyExplosion;
 
     public float speed = 2f;
@@ -33,8 +33,9 @@ public class EnemyControl : MonoBehaviour
 
     void Awake()
     {
-        this.transform.parent = GameObject.Find("Enemy Spawn").transform;
-        enemySpawn = GameObject.Find("Enemy Despawn");
+        this.transform.parent = GameObject.Find("Total Enemies Spawned").transform;
+        //this.transform.parent = GameObject.Find("Enemy Spawn").transform;
+        target = GameObject.Find("Enemy Despawn");
     }
 
     void Start()
@@ -42,7 +43,7 @@ public class EnemyControl : MonoBehaviour
         currentHealth = startHealth;
 
         enter = false;
-        target = null;
+        //target = null;
     }
 
     void OnTriggerEnter(Collider other)
@@ -95,7 +96,7 @@ public class EnemyControl : MonoBehaviour
             }
             else if(closestItem == null)
             {
-                closestItem = enemySpawn;
+                closestItem = target;
                 Debug.DrawLine(this.transform.position, closestItem.transform.position, Color.black);
                 DespawnEnemy();
             }
@@ -137,7 +138,7 @@ public class EnemyControl : MonoBehaviour
 
     void DespawnEnemy()
     {
-        transform.LookAt(enemySpawn.transform.position);
+        transform.LookAt(target.transform.position);
 
         transform.Translate(0.0f, 0.0f, speed * Time.deltaTime);
         exit = true;

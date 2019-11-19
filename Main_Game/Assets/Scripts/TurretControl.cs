@@ -7,7 +7,6 @@ public class TurretControl : MonoBehaviour
     public static TurretControl instance;
 
     public Transform turret;
-    public Transform barrel;
     public float eleMin;
     public float eleMax;
     public float speed = 1f;

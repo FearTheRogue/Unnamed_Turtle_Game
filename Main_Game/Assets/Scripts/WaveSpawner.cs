@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 // Inital Wave Spawner Script from https://www.youtube.com/watch?v=Vrld13ypX_I
 
@@ -19,6 +20,7 @@ public class WaveSpawner : MonoBehaviour
 
     public Wave[] waves;
     private int nextWave = 0;
+    private int currentWave;
 
     public Transform[] spawnPoints;
 
@@ -29,6 +31,8 @@ public class WaveSpawner : MonoBehaviour
 
     private SpawnState state = SpawnState.COUNTING;
 
+    public Text roundText, roundCompleteText;
+
     void Start()
     {
         if(spawnPoints.Length == 0)
@@ -37,6 +41,8 @@ public class WaveSpawner : MonoBehaviour
         }
 
         waveCountdown = timeBetweenWaves;
+
+        roundCompleteText.text = "";
     }
 
     void Update()
@@ -59,15 +65,29 @@ public class WaveSpawner : MonoBehaviour
             {
                 StartCoroutine(SpawnWave(waves[nextWave]));
             }
+
+            roundCompleteText.text = "";
         }
         else
         {
             waveCountdown -= Time.deltaTime;
+            currentWave = nextWave + 1;
+
+            if(currentWave == 1)
+            {
+                roundText.text = "Round " + currentWave + " incoming - " + waveCountdown.ToString("F1");
+            }
+            else
+            {
+                roundCompleteText.text = "Round " + currentWave + " incoming - " + waveCountdown.ToString("F1");
+            }
         }
     }
 
     IEnumerator SpawnWave(Wave _wave)
     {
+         roundText.text = _wave.name;
+
         Debug.Log("Spawning Wave " + _wave.name);
 
         state = SpawnState.SPAWNING;
@@ -89,6 +109,8 @@ public class WaveSpawner : MonoBehaviour
 
         Transform _sp = spawnPoints[Random.Range(0, spawnPoints.Length)];
         Instantiate(_enemy, _sp.position, _sp.rotation);
+
+        //_enemy.transform.parent = GameObject.Find("Total Enemies Spawned").transform;
     }
 
     bool EnemyIsAlive()
@@ -109,6 +131,8 @@ public class WaveSpawner : MonoBehaviour
     void WaveCompleted()
     {
         Debug.Log("Wave Completed");
+
+        roundText.text = "Wave Completed";
 
         state = SpawnState.COUNTING;
         waveCountdown = timeBetweenWaves;
