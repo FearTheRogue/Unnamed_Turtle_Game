@@ -55,7 +55,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\PauseMenu.cs" />
      <Compile Include="Assets\Scripts\ArmControl.cs" />
      <Compile Include="Assets\Scripts\Bomb.cs" />
      <Compile Include="Assets\Scripts\Bullet.cs" />
@@ -70,6 +69,7 @@
      <Compile Include="Assets\Scripts\LaunchArcMesh.cs" />
      <Compile Include="Assets\Scripts\LaunchArcRenderer.cs" />
      <Compile Include="Assets\Scripts\ParticleDie.cs" />
+     <Compile Include="Assets\Scripts\PauseMenu.cs" />
      <Compile Include="Assets\Scripts\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\TempEnemy.cs" />
      <Compile Include="Assets\Scripts\ThrowObject.cs" />
