@@ -96,9 +96,9 @@ public class EnemyControl : MonoBehaviour
             }
             else if(closestItem == null)
             {
-                closestItem = target;
+                closestItem = GameObject.Find("Enemy Despawn");
                 Debug.DrawLine(this.transform.position, closestItem.transform.position, Color.black);
-                DespawnEnemy();
+                DespawnEnemy(closestItem);
             }
         } 
     }
@@ -136,8 +136,10 @@ public class EnemyControl : MonoBehaviour
         }
     }
 
-    void DespawnEnemy()
+    void DespawnEnemy(GameObject currentItem)
     {
+        target = currentItem;
+
         transform.LookAt(target.transform.position);
 
         transform.Translate(0.0f, 0.0f, speed * Time.deltaTime);
@@ -152,6 +154,8 @@ public class EnemyControl : MonoBehaviour
         if (exit)
         {
             this.transform.parent = GameObject.Find("Enemy Despawn").transform;
+
+            GameManager.instance.GameLose();
             GameUI.instance.text.text = "GAME OVER, NO EGGS LEFT";
         }
 

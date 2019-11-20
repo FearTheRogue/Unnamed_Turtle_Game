@@ -11,7 +11,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{DD9C0CC1-D738-19A1-40A9-EFFEEE9B49CF}</ProjectGuid>
+    <ProjectGuid>{03C460C9-9034-9BB0-C369-4DAD08562808}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -63,6 +63,7 @@
      <Compile Include="Assets\Scripts\EnemyControl.cs" />
      <Compile Include="Assets\Scripts\EnemySpawn.cs" />
      <Compile Include="Assets\Scripts\Explosion.cs" />
+     <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\GameUI.cs" />
      <Compile Include="Assets\Scripts\Item.cs" />
      <Compile Include="Assets\Scripts\LaunchArcMesh.cs" />
@@ -76,31 +77,31 @@
      <Compile Include="Assets\Scripts\UISlider.cs" />
      <Compile Include="Assets\Scripts\WaveSpawner.cs" />
  <Reference Include="Unity.Timeline.Editor">
- <HintPath>C:/Users/coypu/Documents/GitHub/Unnamed_Turtle_Game/Main_Game/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+ <HintPath>C:/Users/James/Documents/GitHub/Unnamed_Turtle_Game/Untitled_Turtle_Game/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.VSCode.Editor">
- <HintPath>C:/Users/coypu/Documents/GitHub/Unnamed_Turtle_Game/Main_Game/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+ <HintPath>C:/Users/James/Documents/GitHub/Unnamed_Turtle_Game/Untitled_Turtle_Game/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro.Editor">
- <HintPath>C:/Users/coypu/Documents/GitHub/Unnamed_Turtle_Game/Main_Game/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ <HintPath>C:/Users/James/Documents/GitHub/Unnamed_Turtle_Game/Untitled_Turtle_Game/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
- <HintPath>C:/Users/coypu/Documents/GitHub/Unnamed_Turtle_Game/Main_Game/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+ <HintPath>C:/Users/James/Documents/GitHub/Unnamed_Turtle_Game/Untitled_Turtle_Game/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Timeline">
- <HintPath>C:/Users/coypu/Documents/GitHub/Unnamed_Turtle_Game/Main_Game/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+ <HintPath>C:/Users/James/Documents/GitHub/Unnamed_Turtle_Game/Untitled_Turtle_Game/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
  </Reference>
  <Reference Include="Unity.CollabProxy.Editor">
- <HintPath>C:/Users/coypu/Documents/GitHub/Unnamed_Turtle_Game/Main_Game/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+ <HintPath>C:/Users/James/Documents/GitHub/Unnamed_Turtle_Game/Untitled_Turtle_Game/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Rider.Editor">
- <HintPath>C:/Users/coypu/Documents/GitHub/Unnamed_Turtle_Game/Main_Game/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+ <HintPath>C:/Users/James/Documents/GitHub/Unnamed_Turtle_Game/Untitled_Turtle_Game/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro">
- <HintPath>C:/Users/coypu/Documents/GitHub/Unnamed_Turtle_Game/Main_Game/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ <HintPath>C:/Users/James/Documents/GitHub/Unnamed_Turtle_Game/Untitled_Turtle_Game/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.UI">
- <HintPath>C:/Users/coypu/Documents/GitHub/Unnamed_Turtle_Game/Main_Game/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+ <HintPath>C:/Users/James/Documents/GitHub/Unnamed_Turtle_Game/Untitled_Turtle_Game/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2019.2.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

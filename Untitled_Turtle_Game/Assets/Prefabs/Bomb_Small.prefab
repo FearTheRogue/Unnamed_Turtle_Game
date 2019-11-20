@@ -606,7 +606,7 @@ ParticleSystem:
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -4972,7 +4972,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   delay: 3
   radius: 2
-  force: 50
-  damage: 2
+  force: 10
+  damage: 1
   explosionEffect: {fileID: 517811637354812089, guid: 31f4563a4c83d804c8cefc7339a85c70,
     type: 3}

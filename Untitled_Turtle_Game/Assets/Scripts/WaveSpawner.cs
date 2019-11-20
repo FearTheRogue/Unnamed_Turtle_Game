@@ -129,7 +129,7 @@ public class WaveSpawner : MonoBehaviour
     }
 
     void WaveCompleted()
-    {
+    { 
         Debug.Log("Wave Completed");
 
         roundText.text = "Wave Completed";
@@ -139,7 +139,9 @@ public class WaveSpawner : MonoBehaviour
 
         if (nextWave + 1 > waves.Length - 1)
         {
-            nextWave = 0;
+            GameManager.instance.GameWin();
+
+            //nextWave = 0;
             Debug.Log("Completed All Waves! Looping!");
         }
         else
