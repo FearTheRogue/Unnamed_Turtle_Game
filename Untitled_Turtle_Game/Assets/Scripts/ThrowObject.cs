@@ -25,11 +25,20 @@ public class ThrowObject : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && fireRate)
+
+        if (PauseMenu.GameIsPaused)
         {
-            //Fire();
-            StartCoroutine(Firing());
+            return;
         }
+        else
+        {
+            if (Input.GetMouseButtonDown(0) && fireRate)
+            {
+                //Fire();
+                StartCoroutine(Firing());
+            }
+        }
+        
     }
 
     IEnumerator Firing()
