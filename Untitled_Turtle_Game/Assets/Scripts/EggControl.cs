@@ -11,22 +11,25 @@ public class EggControl : MonoBehaviour
     public bool atEgg = false;
     public bool isAlive = true;
 
+    private float searchCountdown;
+
     UI_Slider slider;
+    WaveSpawner waveSpawner;
 
     void Awake()
     {
         slider = GetComponent<UI_Slider>();
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         currentHealth = startingHealth;
         slider.maxValue = startingHealth;
         slider.value = startingHealth;
+
+        waveSpawner = GetComponent<WaveSpawner>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (atEgg)
@@ -37,6 +40,9 @@ public class EggControl : MonoBehaviour
 
             UpdateHealthBar(currentHealth);
         }
+
+        //IsEggAlive();
+        //Debug.Log(IsEggAlive());
     }
 
     public void TakingEgg()
@@ -49,6 +55,23 @@ public class EggControl : MonoBehaviour
             isAlive = false;
         }
     }
+
+    //public bool IsEggAlive()
+    //{
+    //    searchCountdown -= Time.deltaTime;
+
+    //    if(searchCountdown <= 0f)
+    //    {
+    //        searchCountdown = 1f;
+    //        if(GameObject.FindGameObjectWithTag("item") == null)
+    //        {
+    //            GameManager.instance.GameLose();
+
+    //            //return false;
+    //        }
+    //    }
+    //    return true;
+    //}
 
     public void UpdateHealthBar(float val)
     {

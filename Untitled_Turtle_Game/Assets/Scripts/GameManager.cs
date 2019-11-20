@@ -9,16 +9,23 @@ public class GameManager : MonoBehaviour
     public GameObject WinScreen;
     public GameObject LoseScreen;
 
+    WaveSpawner waveSpawner;
+
     // Start is called before the first frame update
     void Start()
     {
         instance = this;
+
+        waveSpawner = GetComponent<WaveSpawner>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (GameObject.FindGameObjectWithTag("item") == null)
+        {
+            GameLose();
+        }
     }
 
     public void GameWin()
@@ -29,5 +36,7 @@ public class GameManager : MonoBehaviour
     public void GameLose()
     {
         LoseScreen.SetActive(true);
+
+        waveSpawner.isGameOver = true;
     }
 }

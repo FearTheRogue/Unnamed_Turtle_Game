@@ -99,6 +99,8 @@ public class EnemyControl : MonoBehaviour
                 closestItem = GameObject.Find("Enemy Despawn");
                 Debug.DrawLine(this.transform.position, closestItem.transform.position, Color.black);
                 DespawnEnemy(closestItem);
+
+                GameManager.instance.GameLose();
             }
         } 
     }
@@ -155,7 +157,8 @@ public class EnemyControl : MonoBehaviour
         {
             this.transform.parent = GameObject.Find("Enemy Despawn").transform;
 
-            GameManager.instance.GameLose();
+            //GameManager.instance.GameLose();
+
             GameUI.instance.text.text = "GAME OVER, NO EGGS LEFT";
         }
 

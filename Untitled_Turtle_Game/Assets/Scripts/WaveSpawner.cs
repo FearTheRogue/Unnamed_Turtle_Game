@@ -27,15 +27,24 @@ public class WaveSpawner : MonoBehaviour
     public float timeBetweenWaves = 5f;
     public float waveCountdown;
 
+    public bool isCompleted, isGameOver;
+
     private float searchCountdown = 1f;
 
     private SpawnState state = SpawnState.COUNTING;
 
     public Text roundText, roundCompleteText;
 
+    EggControl eggControl;
+
     void Start()
     {
-        if(spawnPoints.Length == 0)
+        isCompleted = false;
+        isGameOver = false;
+
+        
+
+        if (spawnPoints.Length == 0)
         {
             Debug.LogError("No Spawn Points Referenced!");
         }
@@ -47,46 +56,54 @@ public class WaveSpawner : MonoBehaviour
 
     void Update()
     {
-        if(state == SpawnState.WAITING)
+        if (!isCompleted && !isGameOver)
         {
-            if (!EnemyIsAlive())
+            if (state == SpawnState.WAITING)
             {
-                WaveCompleted();
+                if (!EnemyIsAlive())
+                {
+                    WaveCompleted();
+                }
+                else
+                {
+                    return;
+                }
+            }
+
+            if (waveCountdown <= 0)
+            {
+                if (state != SpawnState.SPAWNING)
+                {
+                    StartCoroutine(SpawnWave(waves[nextWave]));
+                }
+
+                roundCompleteText.text = "";
             }
             else
             {
-                return;
-            }
-        }
+                waveCountdown -= Time.deltaTime;
+                currentWave = nextWave + 1;
 
-        if(waveCountdown <= 0)
-        {
-            if(state != SpawnState.SPAWNING)
-            {
-                StartCoroutine(SpawnWave(waves[nextWave]));
+                if (currentWave == 1)
+                {
+                    roundText.text = "Round " + currentWave + " incoming - " + waveCountdown.ToString("F1");
+                }
+                else
+                {
+                    roundCompleteText.text = "Round " + currentWave + " incoming - " + waveCountdown.ToString("F1");
+                }
             }
-
-            roundCompleteText.text = "";
         }
         else
         {
-            waveCountdown -= Time.deltaTime;
-            currentWave = nextWave + 1;
-
-            if(currentWave == 1)
-            {
-                roundText.text = "Round " + currentWave + " incoming - " + waveCountdown.ToString("F1");
-            }
-            else
-            {
-                roundCompleteText.text = "Round " + currentWave + " incoming - " + waveCountdown.ToString("F1");
-            }
+            roundText.text = "";
+            roundCompleteText.text = "";
         }
     }
 
     IEnumerator SpawnWave(Wave _wave)
     {
-         roundText.text = _wave.name;
+        roundText.text = _wave.name;
 
         Debug.Log("Spawning Wave " + _wave.name);
 
@@ -100,7 +117,7 @@ public class WaveSpawner : MonoBehaviour
 
         state = SpawnState.WAITING;
 
-        yield break; 
+        yield break;
     }
 
     void SpawnEnemy(Transform _enemy)
@@ -139,7 +156,7 @@ public class WaveSpawner : MonoBehaviour
 
         if (nextWave + 1 > waves.Length - 1)
         {
-            GameManager.instance.GameWin();
+            LevelCompleted();
 
             //nextWave = 0;
             Debug.Log("Completed All Waves! Looping!");
@@ -150,4 +167,15 @@ public class WaveSpawner : MonoBehaviour
         }
     }
 
+    void LevelCompleted()
+    {
+        isCompleted = true; 
+
+        GameManager.instance.GameWin();
+    }
+
+    public void LevelIncompleted()
+    {
+        isGameOver = true;
+    }
 }
