@@ -8,8 +8,11 @@ public class GameManager : MonoBehaviour
 
     public GameObject WinScreen;
     public GameObject LoseScreen;
+    public GameObject InfoPanel;
 
     WaveSpawner waveSpawner;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +20,8 @@ public class GameManager : MonoBehaviour
         instance = this;
 
         waveSpawner = GetComponent<WaveSpawner>();
+
+        StartGame();
     }
 
     // Update is called once per frame
@@ -26,6 +31,20 @@ public class GameManager : MonoBehaviour
         {
             GameLose();
         }
+    }
+
+    public void StartGame()
+    {
+        InfoPanel.SetActive(true);
+
+        Time.timeScale = 0f;
+    }
+
+    public void ExitPanel()
+    {
+        InfoPanel.SetActive(false);
+
+        Time.timeScale = 1f;
     }
 
     public void GameWin()
