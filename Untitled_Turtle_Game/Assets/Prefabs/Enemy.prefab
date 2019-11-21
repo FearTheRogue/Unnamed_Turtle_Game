@@ -374,10 +374,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  enemySpawn: {fileID: 0}
   enemyExplosion: {fileID: 4879103975054387984, guid: f13afe52d1621ee4c9c7190ecac2aadc,
     type: 3}
-  speed: 5
+  speed: 3
   stopDist: 1
   targetBool: 0
   travelToSpawn: 0

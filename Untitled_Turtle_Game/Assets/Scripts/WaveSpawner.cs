@@ -147,9 +147,9 @@ public class WaveSpawner : MonoBehaviour
 
     void WaveCompleted()
     { 
-        Debug.Log("Wave Completed");
+        Debug.Log("Round Completed");
 
-        roundText.text = "Wave Completed";
+        roundText.text = "Round Completed";
 
         state = SpawnState.COUNTING;
         waveCountdown = timeBetweenWaves;

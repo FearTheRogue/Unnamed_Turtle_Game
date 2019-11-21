@@ -272,7 +272,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 285120576}
   m_OnClick:
     m_PersistentCalls:
@@ -623,7 +623,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Untitled Tank/Turtle Game
+  m_Text: Untitled Turret Game
 --- !u!222 &1077167969
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1119,3 +1119,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 0}
+  infoPanel: {fileID: 0}

@@ -26,13 +26,13 @@ public class ThrowObject : MonoBehaviour
     void Update()
     {
 
-        if (PauseMenu.GameIsPaused)
+        if (PauseMenu.GameIsPaused || GameManager.instance.isInfoPanelActive)
         {
             return;
         }
         else
         {
-            if (Input.GetMouseButtonDown(0) && fireRate)
+            if (Input.GetKeyDown(KeyCode.Space) && fireRate)
             {
                 //Fire();
                 StartCoroutine(Firing());
@@ -47,7 +47,9 @@ public class ThrowObject : MonoBehaviour
         Rigidbody obj = Instantiate(throwPrefab, transform.position, transform.rotation);
         obj.velocity = transform.forward * speed;
         reloadingText.text = "Reloading";
+
         yield return new WaitForSeconds(.8f);
+
         reloadingText.text = "Ready To Fire!";
         fireRate = true;
     }

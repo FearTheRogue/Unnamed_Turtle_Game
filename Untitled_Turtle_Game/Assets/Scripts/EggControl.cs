@@ -34,7 +34,7 @@ public class EggControl : MonoBehaviour
     {
         if (atEgg)
         {
-            currentHealth -= Time.deltaTime / 1f;
+            currentHealth -= Time.deltaTime / 5f;
             currentHealth = Mathf.Clamp(currentHealth, 0, currentHealth);
             TakingEgg();
 

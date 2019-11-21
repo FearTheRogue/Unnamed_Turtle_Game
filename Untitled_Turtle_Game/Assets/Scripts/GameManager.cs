@@ -10,9 +10,9 @@ public class GameManager : MonoBehaviour
     public GameObject LoseScreen;
     public GameObject InfoPanel;
 
+    public bool isInfoPanelActive = false;
+
     WaveSpawner waveSpawner;
-
-
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         InfoPanel.SetActive(true);
+        isInfoPanelActive = true;
 
         Time.timeScale = 0f;
     }
@@ -43,6 +44,7 @@ public class GameManager : MonoBehaviour
     public void ExitPanel()
     {
         InfoPanel.SetActive(false);
+        isInfoPanelActive = false;
 
         Time.timeScale = 1f;
     }
