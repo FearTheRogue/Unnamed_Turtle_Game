@@ -48,7 +48,7 @@ public class TrajectoryPath : MonoBehaviour
         }
         if (isPressed)
         {
-            Vector3 vel = GetForceFrom(bomb.transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition));
+            //Vector3 vel = GetForceFrom(bomb.transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition));
         }
 
     }
@@ -65,13 +65,13 @@ public class TrajectoryPath : MonoBehaviour
     void throwBomb()
     {
         bomb.SetActive(true);
-        bomb.rigidbody.useGravity = true;
+       // bomb.rigidbody.useGravity = true;
     }
 
-    private Vector2 GetForceFrom(Vector3 fromPos, Vector3 toPos)
-    {
-        return (new Vector2(toPos.x,toPos.y)) - new Vector2(fromPos.x,fromPos.y))*power;
-    }
+    //private Vector2 GetForceFrom(Vector3 fromPos, Vector3 toPos)
+    //{
+        // return (new Vector2(toPos.x,toPos.y)) - new Vector2(fromPos.x,fromPos.y))*power;
+   // }
 
 
 }

@@ -14,6 +14,7 @@ public class Bomb : MonoBehaviour
     [Header("Explosion Effect")]
 
     public GameObject explosionEffect;
+    public GameObject bombDecal;
 
 
     float countdown;
@@ -44,7 +45,8 @@ public class Bomb : MonoBehaviour
 
     void Explode()
     {
-        Instantiate(explosionEffect, transform.position, transform.rotation);
+        //Instantiate(explosionEffect, transform.position, transform.rotation);
+        Instantiate(bombDecal, transform.position, transform.rotation);
 
         Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
 
