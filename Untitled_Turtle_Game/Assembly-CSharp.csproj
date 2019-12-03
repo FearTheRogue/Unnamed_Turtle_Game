@@ -78,7 +78,6 @@
      <Compile Include="Assets\Scripts\Sound.cs" />
      <Compile Include="Assets\Scripts\TempEnemy.cs" />
      <Compile Include="Assets\Scripts\ThrowObject.cs" />
-     <Compile Include="Assets\Scripts\TrajectoryPath.cs" />
      <Compile Include="Assets\Scripts\TurretAim.cs" />
      <Compile Include="Assets\Scripts\TurretControl.cs" />
      <Compile Include="Assets\Scripts\UI_Slider.cs" />

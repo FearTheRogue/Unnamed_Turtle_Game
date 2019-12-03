@@ -100,9 +100,7 @@ public class EnemyControl : MonoBehaviour
 
                 closestItem = GameObject.Find("Enemy Despawn");
                 Debug.DrawLine(this.transform.position, closestItem.transform.position, Color.black);
-                DespawnEnemy(closestItem);
-
-                
+                DespawnEnemy(closestItem);                
             }
         } 
     }
@@ -129,11 +127,14 @@ public class EnemyControl : MonoBehaviour
                     {
                         GameUI.instance.text.text = "An Enemy is taking an " + target.name;
 
+                        FindObjectOfType<AudioManager>().Play("Alarm");
+
                         egg.TakingEgg();
                     }
                     else if (!canDespawnItem && !collision)
                     {
                         egg.atEgg = false;
+                        FindObjectOfType<AudioManager>().Stop("Alarm");
                     }
                 }
             }

@@ -45,7 +45,14 @@ public class Projectile : MonoBehaviour
 
     void Update()
     {
-        LaunchProjectile();
+        if (PauseMenu.GameIsPaused || GameManager.instance.isInfoPanelActive)
+        {
+            return;
+        }
+        else
+        {
+            LaunchProjectile();
+        }
     }
 
     void LaunchProjectile()
