@@ -56,9 +56,11 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\ArmControl.cs" />
+     <Compile Include="Assets\Scripts\AudioManager.cs" />
      <Compile Include="Assets\Scripts\Bomb.cs" />
      <Compile Include="Assets\Scripts\Bullet.cs" />
      <Compile Include="Assets\Scripts\Despawn.cs" />
+     <Compile Include="Assets\Scripts\EffectObject.cs" />
      <Compile Include="Assets\Scripts\EggControl.cs" />
      <Compile Include="Assets\Scripts\EnemyControl.cs" />
      <Compile Include="Assets\Scripts\EnemySpawn.cs" />
@@ -72,6 +74,8 @@
      <Compile Include="Assets\Scripts\PauseMenu.cs" />
      <Compile Include="Assets\Scripts\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\Projectile.cs" />
+     <Compile Include="Assets\Scripts\RandomSound.cs" />
+     <Compile Include="Assets\Scripts\Sound.cs" />
      <Compile Include="Assets\Scripts\TempEnemy.cs" />
      <Compile Include="Assets\Scripts\ThrowObject.cs" />
      <Compile Include="Assets\Scripts\TrajectoryPath.cs" />
@@ -80,6 +84,7 @@
      <Compile Include="Assets\Scripts\UI_Slider.cs" />
      <Compile Include="Assets\Scripts\UISlider.cs" />
      <Compile Include="Assets\Scripts\WaveSpawner.cs" />
+     <Compile Include="Assets\Scripts\WeaponManager.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>C:/Users/coypu/Documents/GitHub/Unnamed_Turtle_Game/Untitled_Turtle_Game/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>

@@ -56,6 +56,11 @@ public class WaveSpawner : MonoBehaviour
 
     void Update()
     {
+        if (isGameOver)
+        {
+            FindObjectOfType<AudioManager>().Play("Game Over");
+            Debug.LogError("PLaying game over");
+        }
         if (!isCompleted && !isGameOver)
         {
             if (state == SpawnState.WAITING)
@@ -102,7 +107,7 @@ public class WaveSpawner : MonoBehaviour
     }
 
     IEnumerator SpawnWave(Wave _wave)
-    {
+    {        
         roundText.text = _wave.name;
 
         Debug.Log("Spawning Wave " + _wave.name);
@@ -172,6 +177,8 @@ public class WaveSpawner : MonoBehaviour
         isCompleted = true; 
 
         GameManager.instance.GameWin();
+
+        //FindObjectOfType<AudioManager>().Play("Game Win");
     }
 
     public void LevelIncompleted()

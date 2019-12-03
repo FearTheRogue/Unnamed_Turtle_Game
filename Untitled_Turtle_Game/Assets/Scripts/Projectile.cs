@@ -1,22 +1,46 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 // Original Projectile Script https://www.youtube.com/watch?reload=9&v=03GHtGyEHas
 
 public class Projectile : MonoBehaviour
 {
 
-    public Rigidbody bombPrefab;
+    public GameObject bombPrefab;
     public GameObject cursor;
     public Transform firePoint;
     public LayerMask layer;
 
+    public float projDistance;
+    public float projTime;
+    public int weaponIndex;
+
+    public AudioSource firingFX;
+
+    public GameObject selectedTarget;
+
     private Camera cam;
 
-    void Start()
+    public bool fireRate = true;
+    public Text reloadingText;
+
+    Vector3 Vo;
+
+    void Awake()
     {
+        projDistance = bombPrefab.GetComponent<Bomb>().distance;
+        projTime = bombPrefab.GetComponent<Bomb>().timeInAir;
+
+        firingFX = GetComponent<AudioSource>();
+    }
+
+    void Start()
+    { 
         cam = Camera.main;
+
+        reloadingText.text = "";
     }
 
     void Update()
@@ -29,20 +53,19 @@ public class Projectile : MonoBehaviour
         Ray camRay = cam.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
-        if (Physics.Raycast(camRay, out hit, 100f, layer))
+        if (Physics.Raycast(camRay, out hit, projDistance, layer))
         {
             cursor.SetActive(true);
             cursor.transform.position = hit.point + Vector3.up * 0.1f;
 
-            Vector3 Vo = CalculateVelocity(hit.point, firePoint.position, 1.5f);
+            Vo = CalculateVelocity(hit.point, firePoint.position, projTime);
 
             // Set rotation of the cannon
             transform.rotation = Quaternion.LookRotation(Vo);
 
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && fireRate)
             {
-                Rigidbody obj = Instantiate(bombPrefab, firePoint.position, Quaternion.identity);
-                obj.velocity = Vo;
+                StartCoroutine(Firing());
             }
         }
         else
@@ -71,9 +94,29 @@ public class Projectile : MonoBehaviour
         result *= Vxz;
         result.y = Vy;
 
+        Debug.DrawLine(firePoint.position,result);
+
         return result;
     }
 
+    IEnumerator Firing()
+    {
+        fireRate = false;
+
+        firingFX.PlayOneShot(firingFX.clip);
+
+        Instantiate(selectedTarget, cursor.transform.position, cursor.transform.rotation);
+
+        Rigidbody obj = Instantiate(bombPrefab.GetComponent<Rigidbody>(), firePoint.position, Quaternion.identity);
+        obj.velocity = Vo;
+
+        reloadingText.text = "Reloading...";
+
+        yield return new WaitForSeconds(0.8f);
+
+        reloadingText.text = "Ready To Fire!";
+        fireRate = true;
+    }
 
     //public float speed = 20f;
     //public int preditionStepsPerFrame = 6;

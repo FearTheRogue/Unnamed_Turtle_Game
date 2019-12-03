@@ -14,6 +14,10 @@ public class GameManager : MonoBehaviour
 
     WaveSpawner waveSpawner;
 
+    //public AudioSource currentMusic;
+   // public AudioSource WinningMusic;
+    //public AudioSource LostMusic;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,13 +28,13 @@ public class GameManager : MonoBehaviour
         StartGame();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (GameObject.FindGameObjectWithTag("item") == null)
-        {
-            GameLose();
-        }
+        //if (GameObject.FindGameObjectWithTag("item") == null)
+        //{
+          //  Debug.LogError("No Enemies Found");
+            //FindObjectOfType<AudioManager>().Play("Game Over");
+       // }
     }
 
     public void StartGame()
@@ -39,6 +43,8 @@ public class GameManager : MonoBehaviour
         isInfoPanelActive = true;
 
         Time.timeScale = 0f;
+
+        //currentMusic.Play();
     }
 
     public void ExitPanel()
@@ -51,12 +57,14 @@ public class GameManager : MonoBehaviour
 
     public void GameWin()
     {
-        WinScreen.SetActive(true); 
+        WinScreen.SetActive(true);
+        FindObjectOfType<AudioManager>().Play("Game Win");
     }
 
     public void GameLose()
     {
         LoseScreen.SetActive(true);
+        FindObjectOfType<AudioManager>().Play("Game Over");
 
         waveSpawner.isGameOver = true;
     }

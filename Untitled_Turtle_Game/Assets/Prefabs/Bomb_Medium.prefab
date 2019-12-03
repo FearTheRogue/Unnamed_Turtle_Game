@@ -4976,3 +4976,5 @@ MonoBehaviour:
   damage: 5
   explosionEffect: {fileID: 517811637354812089, guid: 31f4563a4c83d804c8cefc7339a85c70,
     type: 3}
+  distance: 100
+  timeInAir: 2

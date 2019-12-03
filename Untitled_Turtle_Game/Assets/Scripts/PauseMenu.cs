@@ -28,7 +28,7 @@ public class PauseMenu : MonoBehaviour
 
     public void PlayGame()
     {
-        SceneManager.LoadScene("TestMain");
+        SceneManager.LoadScene("TestMainWithTrajectory");
     }
 
     public void Resume()

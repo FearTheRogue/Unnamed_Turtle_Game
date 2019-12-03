@@ -16,6 +16,9 @@ public class Bomb : MonoBehaviour
     public GameObject explosionEffect;
     //public GameObject bombDecal;
 
+    [Header("Projectile Attributes 2.0")]
+    public float distance;
+    public float timeInAir;
 
     float countdown;
     bool hasExploded = false;
@@ -45,7 +48,10 @@ public class Bomb : MonoBehaviour
 
     void Explode()
     {
+        //explosionFX.Play();
+
         Instantiate(explosionEffect, transform.position, transform.rotation);
+       
         //Instantiate(bombDecal, transform.position, transform.rotation);
 
         Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
@@ -56,15 +62,19 @@ public class Bomb : MonoBehaviour
             if(rb != null)
             {
                 rb.AddExplosionForce(force, transform.position, radius);
+
                 Debug.Log(rb.name);
             }
 
             EnemyControl enemy = nearbyObject.GetComponent<EnemyControl>();
+
             if(enemy != null)
             {
                 enemy.Health(damage);
             }
         }
+
         Destroy(gameObject);
+
     }
 }

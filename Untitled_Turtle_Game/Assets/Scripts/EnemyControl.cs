@@ -35,7 +35,7 @@ public class EnemyControl : MonoBehaviour
     {
         this.transform.parent = GameObject.Find("Total Enemies Spawned").transform;
         //this.transform.parent = GameObject.Find("Enemy Spawn").transform;
-        target = GameObject.Find("Enemy Despawn");
+        //target = GameObject.Find("Enemy Despawn");
     }
 
     void Start()
@@ -96,11 +96,13 @@ public class EnemyControl : MonoBehaviour
             }
             else if(closestItem == null)
             {
+                //GameManager.instance.GameLose();
+
                 closestItem = GameObject.Find("Enemy Despawn");
                 Debug.DrawLine(this.transform.position, closestItem.transform.position, Color.black);
                 DespawnEnemy(closestItem);
 
-                GameManager.instance.GameLose();
+                
             }
         } 
     }
@@ -146,6 +148,8 @@ public class EnemyControl : MonoBehaviour
 
         transform.Translate(0.0f, 0.0f, speed * Time.deltaTime);
         exit = true;
+
+        GameManager.instance.GameLose();
     }
 
 
