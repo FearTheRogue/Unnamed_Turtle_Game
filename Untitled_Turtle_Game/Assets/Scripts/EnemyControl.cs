@@ -127,14 +127,14 @@ public class EnemyControl : MonoBehaviour
                     {
                         GameUI.instance.text.text = "An Enemy is taking an " + target.name;
 
-                        FindObjectOfType<AudioManager>().Play("Alarm");
+                        //FindObjectOfType<AudioManager>().Play("Alarm");
 
                         egg.TakingEgg();
                     }
                     else if (!canDespawnItem && !collision)
                     {
                         egg.atEgg = false;
-                        FindObjectOfType<AudioManager>().Stop("Alarm");
+                        //FindObjectOfType<AudioManager>().Stop("Alarm");
                     }
                 }
             }
