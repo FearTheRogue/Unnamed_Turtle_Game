@@ -10,6 +10,7 @@ public class Bomb : MonoBehaviour
     public float radius = 5f;
     public float force = 700f;
     public float damage = 2;
+    public float modifier = 0;
 
     [Header("Explosion Effect")]
 
@@ -61,7 +62,8 @@ public class Bomb : MonoBehaviour
             Rigidbody rb = nearbyObject.GetComponent<Rigidbody>();
             if(rb != null)
             {
-                rb.AddExplosionForce(force, transform.position, radius);
+                //rb.AddExplosionForce(force, transform.position, radius);
+                rb.AddExplosionForce(force, transform.position, radius, modifier);
 
                 Debug.Log(rb.name);
             }

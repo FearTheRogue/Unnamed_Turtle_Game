@@ -1267,6 +1267,7 @@ MonoBehaviour:
   radius: 5
   force: 700
   damage: 2
+  modifier: 0
   explosionEffect: {fileID: 0}
   distance: 0
   timeInAir: 0
@@ -4828,6 +4829,7 @@ MonoBehaviour:
   radius: 5
   force: 700
   damage: 2
+  modifier: 0
   explosionEffect: {fileID: 0}
   distance: 0
   timeInAir: 0
@@ -6794,6 +6796,7 @@ MonoBehaviour:
   radius: 5
   force: 700
   damage: 2
+  modifier: 0
   explosionEffect: {fileID: 0}
   distance: 0
   timeInAir: 0
@@ -8043,7 +8046,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f934f3527eb03ee4790e1f1311750ee1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bombPrefab: {fileID: 8705973489962920005, guid: 5a1e836636ff090418ec0233fe721438,
+  bombPrefab: {fileID: 8705973489962920005, guid: ea800846d193a6f4fa6397784d999403,
     type: 3}
   cursor: {fileID: 1784741456}
   firePoint: {fileID: 2085785713}
