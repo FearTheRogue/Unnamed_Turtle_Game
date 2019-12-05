@@ -21,6 +21,8 @@ public class Bomb : MonoBehaviour
     public float distance;
     public float timeInAir;
 
+    public float torque;
+
     float countdown;
     bool hasExploded = false;
 
@@ -40,6 +42,13 @@ public class Bomb : MonoBehaviour
             Explode();
             hasExploded = true;
         }
+    }
+
+    void FixedUpdate()
+    {
+        Rigidbody rb = GetComponent<Rigidbody>();
+        float turn = Input.GetAxis("Horizontal");
+        rb.AddTorque(transform.up * torque * turn);
     }
 
     void OnCollisionEnter(Collision other)

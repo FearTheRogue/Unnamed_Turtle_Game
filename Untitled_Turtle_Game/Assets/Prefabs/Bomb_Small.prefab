@@ -4979,3 +4979,4 @@ MonoBehaviour:
     type: 3}
   distance: 75
   timeInAir: 1.5
+  torque: 500000
