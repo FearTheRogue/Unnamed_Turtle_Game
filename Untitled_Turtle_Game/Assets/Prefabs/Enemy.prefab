@@ -376,11 +376,11 @@ MonoBehaviour:
   target: {fileID: 0}
   enemyExplosion: {fileID: 4879103975054387984, guid: f13afe52d1621ee4c9c7190ecac2aadc,
     type: 3}
-  speed: 3
-  stopDist: 1
+  speed: 2
+  stopDist: 0.75
   targetBool: 0
   travelToSpawn: 0
-  enter: 1
+  enter: 0
   stay: 0
   exit: 0
   collision: 0

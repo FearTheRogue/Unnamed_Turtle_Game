@@ -42,8 +42,6 @@ public class WaveSpawner : MonoBehaviour
         isCompleted = false;
         isGameOver = false;
 
-        
-
         if (spawnPoints.Length == 0)
         {
             Debug.LogError("No Spawn Points Referenced!");
@@ -56,11 +54,13 @@ public class WaveSpawner : MonoBehaviour
 
     void Update()
     {
-        if (isGameOver)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            FindObjectOfType<AudioManager>().Play("Game Over");
+            LevelIncompleted();
+
             Debug.LogError("PLaying game over");
         }
+
         if (!isCompleted && !isGameOver)
         {
             if (state == SpawnState.WAITING)
@@ -184,5 +184,7 @@ public class WaveSpawner : MonoBehaviour
     public void LevelIncompleted()
     {
         isGameOver = true;
+        //FindObjectOfType<AudioManager>().Play("Game Lose");
+        GameManager.instance.GameLose();
     }
 }

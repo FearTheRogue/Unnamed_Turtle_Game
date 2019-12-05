@@ -55,6 +55,13 @@ public class EggControl : MonoBehaviour
             isAlive = false;
         }
     }
+    
+    public void PickingUpItem()
+    {
+        atEgg = true;
+
+
+    }
 
     //public bool IsEggAlive()
     //{

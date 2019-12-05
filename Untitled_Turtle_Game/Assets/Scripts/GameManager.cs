@@ -59,6 +59,8 @@ public class GameManager : MonoBehaviour
     {
         WinScreen.SetActive(true);
         FindObjectOfType<AudioManager>().Play("Game Win");
+
+        Time.timeScale = 0f;
     }
 
     public void GameLose()

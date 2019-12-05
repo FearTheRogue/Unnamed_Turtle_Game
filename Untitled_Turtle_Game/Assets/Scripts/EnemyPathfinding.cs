@@ -1,27 +1,17 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 
-public class EnemyControl : MonoBehaviour
+public class EnemyPathfinding : MonoBehaviour
 {
     [Header("Target")]
     public GameObject target;
-    //public GameObject enemySpawn;
-    [Header("Death Effect")]
-    public GameObject enemyExplosion;
 
-    [Header("Enemy Attributes")]
     public float speed = 2f;
-    public Image healthBar;
-    public float startHealth = 5;
-    public float currentHealth;
-    public Canvas enemyCanvas;
 
-    [Header("Pathfinding Attributes")]
     public float stopDist = 0.5f;
+
     public bool targetBool = false;
     public bool travelToSpawn = false;
 
-    [Header("Booleans")]
     public bool enter = true;
     public bool stay = false;
     public bool exit = false;
@@ -31,35 +21,25 @@ public class EnemyControl : MonoBehaviour
 
     EggControl egg;
 
-    void Awake()
+    private void Awake()
     {
         this.transform.parent = GameObject.Find("Total Enemies Spawned").transform;
-        //this.transform.parent = GameObject.Find("Enemy Spawn").transform;
-        //target = GameObject.Find("Enemy Despawn");
     }
 
-    void Start()
+    private void Start()
     {
-        currentHealth = startHealth;
-
         enter = false;
-        //target = null;
+
+        egg = target.GetComponent<EggControl>();
     }
 
-    void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        if(exit)
-        Destroy(transform.gameObject);
+        if (exit && other.gameObject.tag == "Enemy Despawn")
+            Destroy(transform.gameObject);
     }
 
-    void OnTriggerExit(Collider other)
-    {
-        stay = false;
-        canDespawnItem = false;
-        collision = false;
-    }
-
-    void OnTriggerStay(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         stay = true;
 
@@ -67,9 +47,26 @@ public class EnemyControl : MonoBehaviour
             canDespawnItem = true;
     }
 
-    void OnCollisionEnter(Collision other)
+    private void OnTriggerExit(Collider other)
+    {
+        stay = false;
+        canDespawnItem = false;
+        collision = false;
+    }
+
+    private void OnCollisionEnter(Collision other)
     {
         collision = true;
+    }
+
+    private void Update()
+    {
+        FindClosestItem();
+
+        if (exit)
+        {
+            this.transform.parent = GameObject.Find("Enemy Despawn").transform;
+        }
     }
 
     void FindClosestItem()
@@ -94,15 +91,15 @@ public class EnemyControl : MonoBehaviour
                 Debug.DrawLine(this.transform.position, closestItem.transform.position, Color.red);
                 TravelToClosestItem(closestItem);
             }
-            else if(closestItem == null)
+            else if (closestItem == null)
             {
                 //GameManager.instance.GameLose();
 
                 closestItem = GameObject.Find("Enemy Despawn");
                 Debug.DrawLine(this.transform.position, closestItem.transform.position, Color.black);
-                DespawnEnemy(closestItem);                
+                DespawnEnemy(closestItem);
             }
-        } 
+        }
     }
 
     void TravelToClosestItem(GameObject currentClosesItem)
@@ -122,17 +119,15 @@ public class EnemyControl : MonoBehaviour
                 {
                     transform.Translate(0.0f, 0.0f, speed * Time.deltaTime);
 
-                    egg = target.GetComponent<EggControl>();
-
-                    if (canDespawnItem)
+                    if (canDespawnItem && collision)
                     {
-                        //GameUI.instance.text.text = "An Enemy is taking an " + target.name;
+                        GameUI.instance.text.text = "An Enemy is taking an " + target.name;
+
                         //FindObjectOfType<AudioManager>().Play("Alarm");
 
                         egg.TakingEgg();
-
                     }
-                    else
+                    else if (!canDespawnItem && !collision)
                     {
                         egg.atEgg = false;
                         //FindObjectOfType<AudioManager>().Stop("Alarm");
@@ -151,39 +146,12 @@ public class EnemyControl : MonoBehaviour
         transform.Translate(0.0f, 0.0f, speed * Time.deltaTime);
         exit = true;
 
-        //GameManager.instance.GameLose();
+        GameManager.instance.GameLose();
     }
 
-
-    void Update()
+    public void FoundEgg()
     {
-        FindClosestItem();
-
-        if (exit)
-        {
-            this.transform.parent = GameObject.Find("Enemy Despawn").transform;
-
-            //GameManager.instance.GameLose();
-
-            GameUI.instance.text.text = "GAME OVER, NO EGGS LEFT";
-        }
-
-        enemyCanvas.transform.LookAt(Camera.main.transform.position);
-    }
-
-    public void Health(float amount)
-    {
-        currentHealth -= amount;
-
-        healthBar.fillAmount = currentHealth / startHealth; 
-
-        if(currentHealth <= 0) 
-        {
-            egg = target.GetComponent<EggControl>();
-            egg.atEgg = false;
-
-            Instantiate(enemyExplosion, transform.position, transform.rotation);
-            Destroy(gameObject);
-        }
+        egg = target.GetComponent<EggControl>();
+        egg.atEgg = false;
     }
 }

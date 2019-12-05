@@ -20,6 +20,7 @@ public class Projectile : MonoBehaviour
     public AudioSource firingFX;
 
     public GameObject selectedTarget;
+    public Text outOfRangeText;
 
     private Camera cam;
 
