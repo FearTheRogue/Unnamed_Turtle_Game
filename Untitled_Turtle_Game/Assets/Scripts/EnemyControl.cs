@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class EnemyControl : MonoBehaviour
 {
@@ -96,8 +97,9 @@ public class EnemyControl : MonoBehaviour
             }
             else if(closestItem == null)
             {
-                //GameManager.instance.GameLose();
+                GameManager.instance.GameLose();
 
+                Destroy(gameObject);
                 closestItem = GameObject.Find("Enemy Despawn");
                 Debug.DrawLine(this.transform.position, closestItem.transform.position, Color.black);
                 DespawnEnemy(closestItem);                
@@ -169,6 +171,11 @@ public class EnemyControl : MonoBehaviour
         }
 
         enemyCanvas.transform.LookAt(Camera.main.transform.position);
+    }
+
+    public void PlayAlarm()
+    {
+        //if()
     }
 
     public void Health(float amount)

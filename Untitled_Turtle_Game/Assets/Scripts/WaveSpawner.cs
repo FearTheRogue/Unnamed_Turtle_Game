@@ -54,12 +54,12 @@ public class WaveSpawner : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            LevelIncompleted();
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    LevelIncompleted();
 
-            Debug.LogError("PLaying game over");
-        }
+        //    Debug.LogError("PLaying game over");
+        //}
 
         if (!isCompleted && !isGameOver)
         {
@@ -149,6 +149,18 @@ public class WaveSpawner : MonoBehaviour
         }
         return true;
     }
+
+    //public void PlayAlarm()
+    //{
+    //    if (aSource.isPlaying)
+    //    {
+    //        return;
+    //    }
+    //    else
+    //    {
+    //        aSource.Play();
+    //    }
+    //}
 
     void WaveCompleted()
     { 

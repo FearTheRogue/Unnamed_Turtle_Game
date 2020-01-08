@@ -14,7 +14,6 @@ public class EggControl : MonoBehaviour
     private float searchCountdown;
 
     UI_Slider slider;
-    WaveSpawner waveSpawner;
 
     void Awake()
     {
@@ -26,15 +25,13 @@ public class EggControl : MonoBehaviour
         currentHealth = startingHealth;
         slider.maxValue = startingHealth;
         slider.value = startingHealth;
-
-        waveSpawner = GetComponent<WaveSpawner>();
     }
 
     void Update()
     {
         if (atEgg)
         {
-            currentHealth -= Time.deltaTime / 5f;
+            currentHealth -= Time.deltaTime / 3f;
             currentHealth = Mathf.Clamp(currentHealth, 0, currentHealth);
             TakingEgg();
 
@@ -54,13 +51,12 @@ public class EggControl : MonoBehaviour
             Destroy(gameObject);
             isAlive = false;
         }
+
     }
     
     public void PickingUpItem()
     {
         atEgg = true;
-
-
     }
 
     //public bool IsEggAlive()
@@ -96,7 +92,7 @@ public class EggControl : MonoBehaviour
 
         if (!isAlive)
         {
-            slider.text.text = "Deceased";
+            slider.text.text = "Error: No Power";
         }
     }
 }

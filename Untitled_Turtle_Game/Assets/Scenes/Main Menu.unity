@@ -137,7 +137,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &162707829
 RectTransform:
   m_ObjectHideFlags: 0
@@ -272,11 +272,22 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 285120576}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1834129074}
+        m_MethodName: QuitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &285120576
@@ -553,6 +564,96 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1001 &953765317
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1149596265}
+    m_Modifications:
+    - target: {fileID: -927199367670048503, guid: e480622390bcb0b4faa4df7dd4f41f43,
+        type: 3}
+      propertyPath: m_Name
+      value: Tank_Model_01
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: e480622390bcb0b4faa4df7dd4f41f43,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1604
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: e480622390bcb0b4faa4df7dd4f41f43,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -541
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: e480622390bcb0b4faa4df7dd4f41f43,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 71
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: e480622390bcb0b4faa4df7dd4f41f43,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.822977
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: e480622390bcb0b4faa4df7dd4f41f43,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.27779463
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: e480622390bcb0b4faa4df7dd4f41f43,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.12610346
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: e480622390bcb0b4faa4df7dd4f41f43,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.47920445
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: e480622390bcb0b4faa4df7dd4f41f43,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: e480622390bcb0b4faa4df7dd4f41f43,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -120.817
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: e480622390bcb0b4faa4df7dd4f41f43,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 6.576996
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: e480622390bcb0b4faa4df7dd4f41f43,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -41.041992
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: e480622390bcb0b4faa4df7dd4f41f43,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 12.104637
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: e480622390bcb0b4faa4df7dd4f41f43,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 10.638057
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: e480622390bcb0b4faa4df7dd4f41f43,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 18.424635
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e480622390bcb0b4faa4df7dd4f41f43, type: 3}
+--- !u!4 &980487330 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: e480622390bcb0b4faa4df7dd4f41f43,
+    type: 3}
+  m_PrefabInstance: {fileID: 953765317}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1077167966
 GameObject:
   m_ObjectHideFlags: 0
@@ -578,17 +679,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1077167966}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.1644578, w: 0.98638415}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5186, y: 1.5186, z: 1.5186}
   m_Children: []
   m_Father: {fileID: 1834129073}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 18.931002}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 680.3, y: 0}
-  m_SizeDelta: {x: 1089.9, y: 904}
+  m_AnchoredPosition: {x: 464, y: 189}
+  m_SizeDelta: {x: 552.3, y: 551}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1077167968
 MonoBehaviour:
@@ -603,7 +704,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -623,7 +724,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Untitled Turret Game
+  m_Text: Power Defense
 --- !u!222 &1077167969
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -667,8 +768,8 @@ Camera:
   m_GameObject: {fileID: 1143039551}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0, g: 0.17310672, b: 0.4433962, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -746,6 +847,7 @@ RectTransform:
   m_Children:
   - {fileID: 1515591847}
   - {fileID: 285120574}
+  - {fileID: 980487330}
   m_Father: {fileID: 1834129073}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
